@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://dudfwlo6oec2a"]
+[gd_scene load_steps=32 format=3 uid="uid://dudfwlo6oec2a"]
 
 [ext_resource type="Texture2D" uid="uid://doahjsiqr7v8f" path="res://assets/Free/Main Characters/Mask Dude/Idle (32x32).png" id="1_doj8e"]
+[ext_resource type="Script" path="res://src/Player/Script/player.gd" id="1_onhkh"]
 [ext_resource type="Texture2D" uid="uid://dcxso7qashjb" path="res://assets/Free/Main Characters/Mask Dude/Run (32x32).png" id="2_66rla"]
 [ext_resource type="Texture2D" uid="uid://rko0fue14hmj" path="res://assets/Free/Main Characters/Mask Dude/Jump (32x32).png" id="3_ja1on"]
 [ext_resource type="Texture2D" uid="uid://ck43yoe07fu58" path="res://assets/Free/Main Characters/Mask Dude/Fall (32x32).png" id="4_xhroa"]
@@ -352,6 +353,7 @@ graph_offset = Vector2(-124, 31)
 size = Vector2(19, 21)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_onhkh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
