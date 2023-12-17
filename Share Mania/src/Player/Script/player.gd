@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #get statemachine variable from animation tree
-var stateMachine = $AnimationTree.get("parameters/playback")
+@onready var stateMachine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -25,9 +25,9 @@ func _physics_process(delta):
 	
 	#setting sprite flip based on direction
 	if direction == 1:
-		$Sprite2D.flip_h = true
-	elif direction == -1:
 		$Sprite2D.flip_h = false
+	elif direction == -1:
+		$Sprite2D.flip_h = true
 	
 	
 	if direction:
