@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://42p3moyml021"]
+[gd_scene load_steps=9 format=3 uid="uid://42p3moyml021"]
 
 [ext_resource type="Texture2D" uid="uid://6tldjpxrbjf" path="res://assets/Free/Terrain/Terrain (16x16).png" id="1_t10yr"]
 [ext_resource type="PackedScene" uid="uid://dudfwlo6oec2a" path="res://src/Player/Scene/player.tscn" id="2_3bgim"]
+[ext_resource type="PackedScene" uid="uid://dolm36i8rx8ho" path="res://src/GiftBox/Modifiers/NormalWeightModifier/Scene/normal_weight_modifier.tscn" id="3_ertbb"]
 [ext_resource type="PackedScene" uid="uid://hyylcyrhleh3" path="res://src/GiftBox/Scene/gift_box.tscn" id="3_ka32i"]
+[ext_resource type="Script" path="res://src/MainMap/BackgroundLayer/Script/backgroundLayer.gd" id="5_4xigo"]
+[ext_resource type="Texture2D" uid="uid://cqm8cysj7kown" path="res://assets/Free/Background/Blue.png" id="6_hkhbe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_268t8"]
 texture = ExtResource("1_t10yr")
@@ -497,6 +500,8 @@ layer_0/tile_data = PackedInt32Array(2490369, 131072, 1, 2490370, 458752, 0, 249
 [node name="GiftBox" parent="." instance=ExtResource("3_ka32i")]
 position = Vector2(502, 396)
 
+[node name="normalWeightModifier" parent="GiftBox/modifiers" index="0" instance=ExtResource("3_ertbb")]
+
 [node name="Player" parent="." instance=ExtResource("2_3bgim")]
 position = Vector2(414, 369)
 
@@ -506,6 +511,7 @@ zoom = Vector2(1.2, 1.2)
 
 [node name="backgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
+script = ExtResource("5_4xigo")
 
 [node name="Control" type="Control" parent="backgroundLayer"]
 layout_mode = 3
@@ -514,3 +520,2027 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="backgroundLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 1158.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/0"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/1"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/2"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/3"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/4"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/5"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/6"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/7"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/8"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="9" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/9"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="10" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/10"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="11" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/11"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="12" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/12"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="13" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/13"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="14" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/14"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="15" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/15"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="16" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/16"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="17" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/17"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="18" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/18"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="19" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/19"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="20" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/20"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="21" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/21"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="22" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/22"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="23" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/23"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="24" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/24"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="25" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/25"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="26" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/26"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="27" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/27"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="28" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/28"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="29" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="0" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="backgroundLayer/Control/HBoxContainer/29"]
+custom_minimum_size = Vector2(77, 77)
+layout_mode = 2
+texture = ExtResource("6_hkhbe")
+expand_mode = 1
+stretch_mode = 5
+
+[editable path="GiftBox"]

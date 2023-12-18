@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dngo1bkntdurt"
-path="res://.godot/imported/giftBoxPile.jpg-68517043ebbc6e8c6eaf712537888247.ctex"
+uid="uid://creb7ec2rokn1"
+path="res://.godot/imported/giftBoxTop.png-67c2a7ea73f94e7a1941ad2ac1cfe47c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/giftBoxPile.jpg"
-dest_files=["res://.godot/imported/giftBoxPile.jpg-68517043ebbc6e8c6eaf712537888247.ctex"]
+source_file="res://assets/giftBoxTop.png"
+dest_files=["res://.godot/imported/giftBoxTop.png-67c2a7ea73f94e7a1941ad2ac1cfe47c.ctex"]
 
 [params]
 

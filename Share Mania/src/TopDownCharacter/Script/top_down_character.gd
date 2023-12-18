@@ -5,12 +5,7 @@ const SPEED = 200.0
 
 @onready var stateMachine = $AnimationTree.get("parameters/playback")
 
-
-
-
 func _physics_process(delta):
-
-	
 	var direction = Vector2()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

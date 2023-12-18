@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ds4511tpxnx3i"]
+[gd_scene load_steps=32 format=3 uid="uid://ds4511tpxnx3i"]
 
 [ext_resource type="Script" path="res://src/TopDownCharacter/Script/top_down_character.gd" id="1_gvqly"]
 [ext_resource type="Texture2D" uid="uid://tb5sjkfv568g" path="res://assets/Idle.png" id="1_vxw8v"]
@@ -310,6 +310,18 @@ animation = &"backWalk"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_egfqh"]
 animation = &"rightWalk"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bay0k"]
+animation = &"leftWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ye1c7"]
+animation = &"leftWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jj3aq"]
+animation = &"rightWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3arv"]
+animation = &"rightWalk"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_6hpo2"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_mqy1i")
 blend_point_0/pos = Vector2(0, 1)
@@ -319,6 +331,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_y5mfj")
 blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_egfqh")
 blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_bay0k")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_ye1c7")
+blend_point_5/pos = Vector2(-1, -1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_jj3aq")
+blend_point_6/pos = Vector2(1, 1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_a3arv")
+blend_point_7/pos = Vector2(1, -1)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1qy6o"]
 
@@ -333,7 +353,7 @@ states/walk/position = Vector2(485, 118)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1qy6o"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_8hhvl")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pl0nl"]
-size = Vector2(10, 20)
+size = Vector2(10, 13.1667)
 
 [node name="TopDownCharacter" type="CharacterBody2D"]
 position = Vector2(430, 219)
@@ -361,5 +381,5 @@ parameters/idle/blend_position = Vector2(0, 1)
 parameters/walk/blend_position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-0.666667, 5.33334)
 shape = SubResource("RectangleShape2D_pl0nl")

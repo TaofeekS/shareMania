@@ -14,6 +14,10 @@ config/name="Share Mania"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1155
+
 [input]
 
 pickItem={
