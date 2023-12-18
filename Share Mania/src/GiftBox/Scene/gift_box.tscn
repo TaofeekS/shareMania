@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hyylcyrhleh3"]
+
+[ext_resource type="Texture2D" uid="uid://3ewfn5sx3gel" path="res://icon.svg" id="1_2msd0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ewi81"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyflu"]
+size = Vector2(38, 36)
+
+[node name="GiftBox" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ewi81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_2msd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pyflu")
