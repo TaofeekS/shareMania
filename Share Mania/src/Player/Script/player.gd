@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var SPEED = 220.0
 const JUMP_VELOCITY = -400.0
 var items = []
+var carriedObject = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,6 +19,9 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if carriedObject:
+			if not carriedObject.allowJump():
+				return
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -34,7 +38,10 @@ func _physics_process(delta):
 	
 	
 	if direction:
-		velocity.x = direction * SPEED
+		var speedPenalty = 0
+		if carriedObject:
+			speedPenalty = carriedObject.getSpeedPenalty()
+		velocity.x = direction * (SPEED - speedPenalty)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
@@ -72,19 +79,20 @@ func _on_item_detector_body_exited(body):
 
 
 func dropCarriedObject():
-	var carriedObject = $baseObjectPos/carriedObjectPos.get_child(0)
+	carriedObject = $baseObjectPos/carriedObjectPos.get_child(0)
 	$baseObjectPos/carriedObjectPos.remove_child(carriedObject)
 	get_parent().add_child(carriedObject)
 	 
 	carriedObject.followParent = false
 	carriedObject.position = $baseObjectPos/carriedObjectPos.global_position
+	carriedObject = false
 
 
 func pickObject():
-	var obj = items[0]
-	get_parent().remove_child(obj)
-	$baseObjectPos/carriedObjectPos.add_child(obj)
-	obj.followParent = true
+	carriedObject = items[0]
+	get_parent().remove_child(carriedObject)
+	$baseObjectPos/carriedObjectPos.add_child(carriedObject)
+	carriedObject.followParent = true
 	$baseObjectPos/AnimationPlayer.play("pickObject")
 
 
