@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dudfwlo6oec2a"]
+[gd_scene load_steps=36 format=3 uid="uid://dudfwlo6oec2a"]
 
 [ext_resource type="Texture2D" uid="uid://doahjsiqr7v8f" path="res://assets/Free/Main Characters/Mask Dude/Idle (32x32).png" id="1_doj8e"]
 [ext_resource type="Script" path="res://src/Player/Script/player.gd" id="1_onhkh"]
@@ -352,7 +352,68 @@ graph_offset = Vector2(-124, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q22bo"]
 size = Vector2(19, 21)
 
+[sub_resource type="Animation" id="Animation_qsd2g"]
+resource_name = "pickObject"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("carriedObjectPos:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(25, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("carriedObjectPos:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(11, -0.25, 0, 0.25, 0, -30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_pqqvl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("carriedObjectPos:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("carriedObjectPos:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(11, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3ylm"]
+_data = {
+"RESET": SubResource("Animation_pqqvl"),
+"pickObject": SubResource("Animation_qsd2g")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmt4k"]
+size = Vector2(37, 3)
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_onhkh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -377,3 +438,23 @@ parameters/run/runSpeed/scale = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q22bo")
+
+[node name="baseObjectPos" type="Marker2D" parent="."]
+
+[node name="carriedObjectPos" type="Marker2D" parent="baseObjectPos"]
+position = Vector2(20, 11)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="baseObjectPos"]
+libraries = {
+"": SubResource("AnimationLibrary_f3ylm")
+}
+
+[node name="itemDetector" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itemDetector"]
+position = Vector2(1.5, 9.5)
+shape = SubResource("RectangleShape2D_nmt4k")
+
+[connection signal="body_entered" from="itemDetector" to="." method="_on_item_detector_body_entered"]
+[connection signal="body_exited" from="itemDetector" to="." method="_on_item_detector_body_exited"]

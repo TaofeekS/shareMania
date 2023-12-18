@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var SPEED = 220.0
 const JUMP_VELOCITY = -400.0
+var items = []
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,8 +27,10 @@ func _physics_process(delta):
 	#setting sprite flip based on direction
 	if direction == 1:
 		$Sprite2D.flip_h = false
+		$baseObjectPos.scale.x = 1
 	elif direction == -1:
 		$Sprite2D.flip_h = true
+		$baseObjectPos.scale.x = -1
 	
 	
 	if direction:
@@ -49,4 +52,41 @@ func _physics_process(delta):
 		else:
 			stateMachine.travel("fall")
 	
+	if Input.is_action_just_pressed("pickItem"):
+		
+		if CarryingAnObject():
+			dropCarriedObject()
+		else:
+			if items.size() != 0:
+				pickObject()
 	
+
+
+func _on_item_detector_body_entered(body):
+	items.append(body)
+
+
+func _on_item_detector_body_exited(body):
+	if items.has(body):
+		items.erase(body)
+
+
+func dropCarriedObject():
+	var carriedObject = $baseObjectPos/carriedObjectPos.get_child(0)
+	$baseObjectPos/carriedObjectPos.remove_child(carriedObject)
+	get_parent().add_child(carriedObject)
+	 
+	carriedObject.followParent = false
+	carriedObject.position = $baseObjectPos/carriedObjectPos.global_position
+
+
+func pickObject():
+	var obj = items[0]
+	get_parent().remove_child(obj)
+	$baseObjectPos/carriedObjectPos.add_child(obj)
+	obj.followParent = true
+	$baseObjectPos/AnimationPlayer.play("pickObject")
+
+
+func CarryingAnObject():
+	return $baseObjectPos/carriedObjectPos.get_child_count() != 0
