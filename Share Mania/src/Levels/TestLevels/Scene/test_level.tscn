@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://42p3moyml021"]
+[gd_scene load_steps=6 format=3 uid="uid://42p3moyml021"]
 
 [ext_resource type="Texture2D" uid="uid://6tldjpxrbjf" path="res://assets/Free/Terrain/Terrain (16x16).png" id="1_t10yr"]
 [ext_resource type="PackedScene" uid="uid://dudfwlo6oec2a" path="res://src/Player/Scene/player.tscn" id="2_3bgim"]
-[ext_resource type="PackedScene" uid="uid://dolm36i8rx8ho" path="res://src/GiftBox/Modifiers/NormalWeightModifier/Scene/normal_weight_modifier.tscn" id="3_ertbb"]
 [ext_resource type="PackedScene" uid="uid://hyylcyrhleh3" path="res://src/GiftBox/Scene/gift_box.tscn" id="3_ka32i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_268t8"]
@@ -498,11 +497,6 @@ layer_0/tile_data = PackedInt32Array(2490369, 131072, 1, 2490370, 458752, 0, 249
 [node name="GiftBox" parent="." instance=ExtResource("3_ka32i")]
 position = Vector2(502, 396)
 
-[node name="GiftBox2" parent="." instance=ExtResource("3_ka32i")]
-position = Vector2(502, 396)
-
-[node name="normalWeightModifier" parent="GiftBox2/modifiers" index="0" instance=ExtResource("3_ertbb")]
-
 [node name="Player" parent="." instance=ExtResource("2_3bgim")]
 position = Vector2(414, 369)
 
@@ -510,4 +504,13 @@ position = Vector2(414, 369)
 position = Vector2(493, 403)
 zoom = Vector2(1.2, 1.2)
 
-[editable path="GiftBox2"]
+[node name="backgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Control" type="Control" parent="backgroundLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
