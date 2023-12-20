@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://42p3moyml021"]
+[gd_scene load_steps=25 format=3 uid="uid://42p3moyml021"]
 
 [ext_resource type="Texture2D" uid="uid://6tldjpxrbjf" path="res://assets/Free/Terrain/Terrain (16x16).png" id="1_t10yr"]
 [ext_resource type="PackedScene" uid="uid://dudfwlo6oec2a" path="res://src/Player/Scene/player.tscn" id="2_3bgim"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://src/MainMap/BackgroundLayer/Script/backgroundLayer.gd" id="5_4xigo"]
 [ext_resource type="Texture2D" uid="uid://cqm8cysj7kown" path="res://assets/Free/Background/Blue.png" id="6_hkhbe"]
 [ext_resource type="Texture2D" uid="uid://dir2eiqmvxsti" path="res://assets/Free/2DHousetransparent.png" id="6_qij3d"]
+[ext_resource type="FontFile" uid="uid://dnw3ray0n4ij5" path="res://fonts/Hello-Christmas-trial.ttf" id="7_arjwt"]
+[ext_resource type="Script" path="res://src/Levels/HUD/Script/HUD.gd" id="7_p4i20"]
+[ext_resource type="FontFile" uid="uid://da607l3qu3wli" path="res://fonts/Hello-Christmas-Fill-trial.ttf" id="8_8ja0p"]
+[ext_resource type="Texture2D" uid="uid://nr6jv4gacn6s" path="res://assets/ALL UI ASSETS on one sheet.png" id="10_b6g82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2jih"]
 size = Vector2(39, 67)
@@ -546,6 +550,97 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_268t8")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl0m2"]
+bg_color = Color(0.909804, 0.811765, 0.65098, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_8m4vt"]
+font = ExtResource("7_arjwt")
+font_size = 100
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxyhb"]
+font = ExtResource("8_8ja0p")
+font_size = 100
+
+[sub_resource type="Animation" id="Animation_4s73b"]
+resource_name = "objectivesLabelAnimated"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_7hp36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t30fx"]
+_data = {
+"RESET": SubResource("Animation_7hp36"),
+"objectivesLabelAnimated": SubResource("Animation_4s73b")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7gs4"]
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqqs0"]
+bg_color = Color(0.768627, 0.603922, 0.423529, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.909804, 0.811765, 0.65098, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_hs3w5"]
+font = ExtResource("7_arjwt")
+font_size = 40
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eitjr"]
+texture = ExtResource("10_b6g82")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(155, 70, 26, 19)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7luy"]
+texture = ExtResource("10_b6g82")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(203, 71, 26, 18)
+
 [node name="testLevel" type="Node2D"]
 
 [node name="exit" type="Node2D" parent="."]
@@ -601,6 +696,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
+metadata/_edit_group_ = true
 
 [node name="0" type="VBoxContainer" parent="backgroundLayer/Control/HBoxContainer"]
 layout_mode = 2
@@ -2611,5 +2707,123 @@ layout_mode = 2
 texture = ExtResource("6_hkhbe")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("7_p4i20")
+
+[node name="objectivesPanel" type="Panel" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.5
+offset_top = -257.0
+offset_right = 340.5
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tl0m2")
+
+[node name="titleLabel" type="Label" parent="HUD/objectivesPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.5
+offset_top = 31.0
+offset_right = 194.5
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "OBJECTIVE"
+label_settings = SubResource("LabelSettings_8m4vt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/objectivesPanel/titleLabel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "OBJECTIVE"
+label_settings = SubResource("LabelSettings_rxyhb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/objectivesPanel/titleLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_t30fx")
+}
+
+[node name="descriptionLabel" type="Label" parent="HUD/objectivesPanel"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 141.0
+offset_right = 617.0
+offset_bottom = 247.0
+text = "Deliver The Gift to the house "
+label_settings = SubResource("LabelSettings_r7gs4")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="modifiersPanel" type="Panel" parent="HUD/objectivesPanel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 241.0
+offset_right = 655.0
+offset_bottom = 442.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqqs0")
+
+[node name="Label" type="Label" parent="HUD/objectivesPanel/modifiersPanel"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 21.0
+offset_right = 385.0
+offset_bottom = 71.0
+text = "MODIFIERS"
+label_settings = SubResource("LabelSettings_hs3w5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="modifierContainer" type="HBoxContainer" parent="HUD/objectivesPanel/modifiersPanel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 73.0
+offset_right = 607.0
+offset_bottom = 186.0
+alignment = 1
+
+[node name="startGame" type="Button" parent="HUD/objectivesPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -58.0
+offset_right = 59.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_eitjr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eitjr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f7luy")
+text = "START"
+
+[connection signal="pressed" from="HUD/objectivesPanel/startGame" to="HUD" method="_on_start_game_pressed"]
 
 [editable path="GiftBox"]

@@ -14,9 +14,14 @@ config/name="Share Mania"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://src/Global/Script/Global.gd"
+
 [display]
 
 window/size/viewport_width=1155
+window/stretch/mode="viewport"
 
 [input]
 

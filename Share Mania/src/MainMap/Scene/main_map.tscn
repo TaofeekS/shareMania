@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://8be432wos3a6"]
+[gd_scene load_steps=20 format=3 uid="uid://8be432wos3a6"]
 
 [ext_resource type="Texture2D" uid="uid://brl3ut4fregge" path="res://assets/atlas.png" id="1_dgt2r"]
+[ext_resource type="Script" path="res://src/MainMap/Script/main_map.gd" id="1_dwe2m"]
 [ext_resource type="Texture2D" uid="uid://cgdub1awlt12x" path="res://assets/grassRiver.png" id="2_6lss0"]
 [ext_resource type="PackedScene" uid="uid://ds4511tpxnx3i" path="res://src/TopDownCharacter/Scene/top_down_character.tscn" id="3_e0n03"]
 [ext_resource type="Texture2D" uid="uid://creb7ec2rokn1" path="res://assets/giftBoxTop.png" id="4_5f6yg"]
+[ext_resource type="Script" path="res://src/MainMap/Script/houseArea.gd" id="4_kwc0y"]
+[ext_resource type="Texture2D" uid="uid://btr2wjdh1paj7" path="res://assets/giftBox.png" id="5_6d0a8"]
+[ext_resource type="Shader" path="res://src/Shader/outline.gdshader" id="5_6jno7"]
+[ext_resource type="Script" path="res://src/MainMap/Script/mainMapHUD.gd" id="5_q1fg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6o7du"]
 texture = ExtResource("1_dgt2r")
@@ -3701,10 +3706,80 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_6o7du")
 sources/2 = SubResource("TileSetAtlasSource_1yw2a")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6poi4"]
-size = Vector2(350, 310)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mgtp"]
+size = Vector2(29, 27)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykljs"]
+shader = ExtResource("5_6jno7")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="Animation" id="Animation_2yc77"]
+resource_name = "focus"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GiftPile:material:shader_parameter/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 4.247]
+}
+
+[sub_resource type="Animation" id="Animation_td5i0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GiftPile:material:shader_parameter/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ik42p"]
+resource_name = "unfocus"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GiftPile:material:shader_parameter/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ceu2n"]
+_data = {
+"RESET": SubResource("Animation_td5i0"),
+"focus": SubResource("Animation_2yc77"),
+"unfocus": SubResource("Animation_ik42p")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5ty5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.847059, 0.847059, 0.847059, 1)
 
 [node name="MainMap" type="Node2D"]
+script = ExtResource("1_dwe2m")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lxvpu")
@@ -3714,16 +3789,82 @@ layer_1/tile_data = PackedInt32Array(655399, 720896, 28, 655400, 786432, 28, 655
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(458791, 720896, 25, 524327, 720896, 26, 589863, 720896, 27, 458792, 786432, 25, 524328, 786432, 26, 589864, 786432, 27, 458793, 851968, 25, 524329, 851968, 26, 589865, 851968, 27, 458794, 917504, 25, 524330, 917504, 26, 589866, 917504, 27, 458795, 983040, 25, 524331, 983040, 26, 589867, 983040, 27)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="houses" type="Node2D" parent="."]
+
+[node name="houseArea" type="Area2D" parent="houses"]
+position = Vector2(663, 169)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_kwc0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/houseArea"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_6mgtp")
+
+[node name="giftboxPile" type="StaticBody2D" parent="."]
 position = Vector2(482, 442)
 scale = Vector2(0.2, 0.2)
+collision_layer = 4
+collision_mask = 4
 
-[node name="GiftPile" type="Sprite2D" parent="StaticBody2D"]
+[node name="GiftPile" type="Sprite2D" parent="giftboxPile"]
+material = SubResource("ShaderMaterial_ykljs")
 scale = Vector2(4, 4)
 texture = ExtResource("4_5f6yg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(10, 15)
-shape = SubResource("RectangleShape2D_6poi4")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="giftboxPile"]
+position = Vector2(5, 0)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-10, -170, -160, -45, -160, -10, -145, -5, -130, 60, 5, 175, 125, 50, 135, -10, 150, -25, 155, -55)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="giftboxPile"]
+libraries = {
+"": SubResource("AnimationLibrary_ceu2n")
+}
+autoplay = "unfocus"
 
 [node name="TopDownCharacter" parent="." instance=ExtResource("3_e0n03")]
+collision_layer = 2
+collision_mask = 5
+
+[node name="mainMapHUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_q1fg1")
+
+[node name="Control" type="Control" parent="mainMapHUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="boxHolder" type="Panel" parent="mainMapHUD/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -131.0
+offset_top = 33.0
+offset_right = -31.0
+offset_bottom = 133.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_c5ty5")
+
+[node name="giftBox" type="TextureRect" parent="mainMapHUD/Control/boxHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -41.0
+offset_right = 35.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_6d0a8")
+
+[connection signal="body_entered" from="houses/houseArea" to="houses/houseArea" method="_on_body_entered"]
