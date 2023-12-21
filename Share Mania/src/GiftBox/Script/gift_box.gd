@@ -29,3 +29,10 @@ func getSpeedPenalty():
 			return node.speedPenalty
 	
 	return 0
+
+
+func _on_body_entered(body):
+	for node in $modifiers.get_children():
+		var groups = node.get_groups()
+		if groups.has("fragile"):
+			node.updateHealthBar(linear_velocity)

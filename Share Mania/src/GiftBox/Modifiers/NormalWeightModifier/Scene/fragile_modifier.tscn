@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2o1443mcylib"]
+
+[ext_resource type="Script" path="res://src/GiftBox/Modifiers/NormalWeightModifier/Script/fragile_modifier.gd" id="2_qbqbg"]
+
+[node name="fragileModifier" type="Node2D" groups=["fragile"]]
+script = ExtResource("2_qbqbg")

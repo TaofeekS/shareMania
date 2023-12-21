@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://42p3moyml021"]
+[gd_scene load_steps=32 format=3 uid="uid://42p3moyml021"]
 
 [ext_resource type="Texture2D" uid="uid://6tldjpxrbjf" path="res://assets/Free/Terrain/Terrain (16x16).png" id="1_t10yr"]
+[ext_resource type="Script" path="res://src/Levels/TestLevels/Script/test_level.gd" id="1_tcg2e"]
 [ext_resource type="PackedScene" uid="uid://dudfwlo6oec2a" path="res://src/Player/Scene/player.tscn" id="2_3bgim"]
 [ext_resource type="PackedScene" uid="uid://hyylcyrhleh3" path="res://src/GiftBox/Scene/gift_box.tscn" id="3_ka32i"]
 [ext_resource type="Script" path="res://src/MainMap/BackgroundLayer/Script/backgroundLayer.gd" id="5_4xigo"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" path="res://src/Levels/HUD/Script/HUD.gd" id="7_p4i20"]
 [ext_resource type="FontFile" uid="uid://da607l3qu3wli" path="res://fonts/Hello-Christmas-Fill-trial.ttf" id="8_8ja0p"]
 [ext_resource type="Texture2D" uid="uid://nr6jv4gacn6s" path="res://assets/ALL UI ASSETS on one sheet.png" id="10_b6g82"]
+[ext_resource type="Texture2D" uid="uid://btr2wjdh1paj7" path="res://assets/giftBox.png" id="12_hutgt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2jih"]
 size = Vector2(39, 67)
@@ -568,6 +570,33 @@ outline_color = Color(0, 0, 0, 1)
 font = ExtResource("8_8ja0p")
 font_size = 100
 
+[sub_resource type="Animation" id="Animation_7hp36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../deliverPanel/Panel/titleLabel/Label2:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_4s73b"]
 resource_name = "objectivesLabelAnimated"
 loop_mode = 1
@@ -583,20 +612,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false]
 }
-
-[sub_resource type="Animation" id="Animation_7hp36"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../deliverPanel/Panel/titleLabel/Label2:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0588235)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t30fx"]
@@ -641,7 +667,39 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(203, 71, 26, 18)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyf7k"]
+bg_color = Color(0.909804, 0.811765, 0.65098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ui15"]
+font = ExtResource("7_arjwt")
+font_size = 70
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gah5q"]
+font = ExtResource("8_8ja0p")
+font_size = 70
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28yd0"]
+texture = ExtResource("10_b6g82")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(155, 38, 26, 19)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkoyw"]
+texture = ExtResource("10_b6g82")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(203, 39, 26, 18)
+
 [node name="testLevel" type="Node2D"]
+script = ExtResource("1_tcg2e")
 
 [node name="exit" type="Node2D" parent="."]
 position = Vector2(854, 523)
@@ -653,6 +711,7 @@ texture = ExtResource("6_qij3d")
 
 [node name="Area2D" type="Area2D" parent="exit"]
 position = Vector2(25, 47)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit/Area2D"]
 position = Vector2(5.5, 8.5)
@@ -664,7 +723,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2490369, 131072, 1, 2490370, 458752, 0, 2490371, 458752, 0, 2490372, 458752, 0, 2490373, 458752, 0, 2490374, 458752, 0, 2490375, 458752, 0, 2490376, 458752, 0, 2490377, 458752, 0, 2490378, 458752, 0, 2490379, 458752, 0, 2490380, 458752, 0, 2490381, 458752, 0, 2490382, 458752, 0, 2490383, 458752, 0, 2490384, 458752, 0, 2490385, 458752, 0, 2490386, 458752, 0, 2490387, 458752, 0, 2490388, 458752, 0, 2490389, 458752, 0, 2490390, 458752, 0, 2490391, 458752, 0, 2490392, 458752, 0, 2490393, 458752, 0, 2490394, 458752, 0, 2490395, 458752, 0, 2490396, 458752, 0, 2490397, 458752, 0, 2490398, 458752, 0, 2490399, 458752, 0, 2490400, 458752, 0, 2490401, 458752, 0, 2490402, 458752, 0, 2490403, 458752, 0, 2490404, 458752, 0, 2490405, 458752, 0, 2490406, 458752, 0, 2490407, 458752, 0, 2490408, 458752, 0, 2490409, 458752, 0, 2490410, 458752, 0, 2490411, 458752, 0, 2490412, 458752, 0, 2490413, 458752, 0, 2490414, 458752, 0, 2490415, 458752, 0, 2490417, 458752, 0, 2490416, 458752, 0, 2490418, 458752, 0, 2490419, 458752, 0, 2490420, 458752, 0, 2490421, 458752, 0, 2490422, 458752, 0, 2490423, 458752, 0, 2490424, 458752, 0, 2490425, 458752, 0, 2490426, 458752, 0, 2490427, 458752, 0, 2490428, 0, 1, 2490429, 458752, 0, 2490430, 458752, 0, 2490431, 458752, 0, 2490432, 458752, 0, 2490433, 458752, 0, 2490434, 458752, 0, 2490435, 458752, 0, 2490436, 458752, 0, 2490437, 458752, 0, 2490438, 458752, 0, 2490439, 458752, 0, 2555905, 131072, 1, 2621441, 131072, 1, 2686977, 196608, 1, 2555906, 458752, 1, 2621442, 458752, 1, 2686978, 65536, 0, 2555907, 458752, 1, 2621443, 458752, 1, 2686979, 65536, 0, 2555908, 458752, 1, 2621444, 458752, 1, 2686980, 65536, 0, 2555909, 458752, 1, 2621445, 458752, 1, 2686981, 65536, 0, 2555910, 458752, 1, 2621446, 458752, 1, 2686982, 65536, 0, 2555911, 458752, 1, 2621447, 458752, 1, 2686983, 65536, 0, 2555912, 458752, 1, 2621448, 458752, 1, 2686984, 65536, 0, 2555913, 458752, 1, 2621449, 458752, 1, 2686985, 65536, 0, 2555914, 458752, 1, 2621450, 458752, 1, 2686986, 65536, 0, 2555915, 458752, 1, 2621451, 458752, 1, 2686987, 65536, 0, 2555916, 458752, 1, 2621452, 458752, 1, 2686988, 65536, 0, 2555917, 458752, 1, 2621453, 458752, 1, 2686989, 65536, 0, 2555918, 458752, 1, 2621454, 458752, 1, 2686990, 65536, 0, 2555919, 458752, 1, 2621455, 458752, 1, 2686991, 65536, 0, 2555920, 458752, 1, 2621456, 458752, 1, 2686992, 65536, 0, 2555921, 458752, 1, 2621457, 458752, 1, 2686993, 65536, 0, 2555922, 458752, 1, 2621458, 458752, 1, 2686994, 65536, 0, 2555923, 458752, 1, 2621459, 458752, 1, 2686995, 65536, 0, 2555924, 458752, 1, 2621460, 458752, 1, 2686996, 65536, 0, 2555925, 458752, 1, 2621461, 458752, 1, 2686997, 65536, 0, 2555926, 458752, 1, 2621462, 458752, 1, 2686998, 65536, 0, 2555927, 458752, 1, 2621463, 458752, 1, 2686999, 65536, 0, 2555928, 458752, 1, 2621464, 458752, 1, 2687000, 65536, 0, 2555929, 458752, 1, 2621465, 458752, 1, 2687001, 65536, 0, 2555930, 458752, 1, 2621466, 458752, 1, 2687002, 65536, 0, 2555931, 458752, 1, 2621467, 458752, 1, 2687003, 65536, 0, 2555932, 458752, 1, 2621468, 458752, 1, 2687004, 65536, 0, 2555933, 458752, 1, 2621469, 458752, 1, 2687005, 65536, 0, 2555934, 458752, 1, 2621470, 458752, 1, 2687006, 65536, 0, 2555935, 458752, 1, 2621471, 458752, 1, 2687007, 65536, 0, 2555936, 458752, 1, 2621472, 458752, 1, 2687008, 65536, 0, 2555937, 458752, 1, 2621473, 458752, 1, 2687009, 65536, 0, 2555938, 458752, 1, 2621474, 458752, 1, 2687010, 65536, 0, 2555939, 458752, 1, 2621475, 458752, 1, 2687011, 65536, 0, 2555940, 458752, 1, 2621476, 458752, 1, 2687012, 65536, 0, 2555941, 458752, 1, 2621477, 458752, 1, 2687013, 65536, 0, 2555942, 458752, 1, 2621478, 458752, 1, 2687014, 65536, 0, 2555943, 458752, 1, 2621479, 458752, 1, 2687015, 65536, 0, 2555944, 458752, 1, 2621480, 458752, 1, 2687016, 65536, 0, 2555945, 458752, 1, 2621481, 458752, 1, 2687017, 65536, 0, 2555946, 458752, 1, 2621482, 458752, 1, 2687018, 65536, 0, 2555947, 458752, 1, 2621483, 458752, 1, 2687019, 65536, 0, 2555948, 458752, 1, 2621484, 458752, 1, 2687020, 65536, 0, 2555949, 458752, 1, 2621485, 458752, 1, 2687021, 65536, 0, 2555950, 458752, 1, 2621486, 458752, 1, 2687022, 65536, 0, 2555951, 458752, 1, 2621487, 458752, 1, 2687023, 65536, 0, 2555952, 458752, 1, 2621488, 458752, 1, 2687024, 65536, 0, 2555953, 458752, 1, 2621489, 458752, 1, 2687025, 65536, 0, 2555954, 458752, 1, 2621490, 458752, 1, 2687026, 65536, 0, 2555955, 458752, 1, 2621491, 458752, 1, 2687027, 65536, 0, 2555956, 458752, 1, 2621492, 458752, 1, 2687028, 65536, 0, 2555957, 458752, 1, 2621493, 458752, 1, 2687029, 65536, 0, 2555958, 458752, 1, 2621494, 458752, 1, 2687030, 65536, 0, 2555959, 458752, 1, 2621495, 458752, 1, 2687031, 65536, 0, 2555960, 458752, 1, 2621496, 458752, 1, 2687032, 65536, 0, 2555961, 458752, 1, 2621497, 458752, 1, 2687033, 65536, 0, 2555962, 458752, 1, 2621498, 458752, 1, 2687034, 65536, 0, 2555963, 458752, 1, 2621499, 458752, 1, 2687035, 65536, 0, 2555964, 0, 1, 2621500, 0, 1, 2687036, 262144, 1, 2555965, 458752, 1, 2621501, 458752, 1, 2687037, 458752, 1, 2555966, 458752, 1, 2621502, 458752, 1, 2687038, 458752, 1, 2555967, 458752, 1, 2621503, 458752, 1, 2687039, 458752, 1, 2555968, 458752, 1, 2621504, 458752, 1, 2687040, 458752, 1, 2555969, 458752, 1, 2621505, 458752, 1, 2687041, 458752, 1, 2555970, 458752, 1, 2621506, 458752, 1, 2687042, 458752, 1, 2555971, 458752, 1, 2621507, 458752, 1, 2687043, 458752, 1, 2555972, 458752, 1, 2621508, 458752, 1, 2687044, 458752, 1, 2555973, 458752, 1, 2621509, 458752, 1, 2687045, 458752, 1, 2555974, 458752, 1, 2621510, 458752, 1, 2687046, 458752, 1, 2555975, 458752, 1, 2621511, 458752, 1, 2687047, 458752, 1, 2424892, 0, 1, 2359356, 0, 1, 2293820, 0, 1, 2228284, 0, 1, 2162748, 0, 1, 2097212, 0, 1, 2031676, 0, 1, 1966140, 0, 1, 1900604, 0, 1, 1835068, 0, 1, 1769532, 0, 1, 1703996, 0, 1, 1638460, 0, 1, 1572924, 0, 1, 1507388, 0, 1, 1441852, 0, 1, 1376316, 0, 1, 1310780, 0, 1, 1245244, 0, 1, 1179708, 0, 1, 1114172, 0, 1, 1048636, 0, 1, 983100, 0, 1, 917564, 0, 1, 852028, 0, 1, 786492, 0, 1, 720956, 0, 1, 655420, 0, 1, 589884, 0, 1, 524348, 262144, 0, 524347, 65536, 2, 524346, 65536, 2, 524345, 65536, 2, 524344, 65536, 2, 524343, 65536, 2, 524342, 65536, 2, 524341, 65536, 2, 524340, 65536, 2, 524339, 65536, 2, 524338, 65536, 2, 524337, 65536, 2, 524336, 65536, 2, 524335, 65536, 2, 524334, 65536, 2, 524333, 65536, 2, 524332, 65536, 2, 524331, 65536, 2, 524330, 65536, 2, 524329, 65536, 2, 524328, 65536, 2, 524327, 65536, 2, 524326, 65536, 2, 524325, 65536, 2, 524324, 65536, 2, 524323, 65536, 2, 524322, 65536, 2, 524321, 65536, 2, 524320, 65536, 2, 524319, 65536, 2, 524318, 65536, 2, 524317, 65536, 2, 524316, 65536, 2, 524315, 65536, 2, 524314, 65536, 2, 524313, 65536, 2, 524312, 65536, 2, 524311, 65536, 2, 524310, 65536, 2, 524309, 65536, 2, 524308, 65536, 2, 524307, 65536, 2, 524306, 65536, 2, 524305, 65536, 2, 524304, 65536, 2, 524303, 65536, 2, 524302, 65536, 2, 524301, 65536, 2, 524300, 65536, 2, 524299, 65536, 2, 524298, 65536, 2, 524297, 65536, 2, 524296, 65536, 2, 524295, 65536, 2, 524294, 65536, 2, 524293, 65536, 2, 524292, 65536, 2, 524291, 65536, 2, 524290, 65536, 2, 524289, 196608, 0, 589825, 131072, 1, 655361, 131072, 1, 720897, 131072, 1, 786433, 131072, 1, 851969, 131072, 1, 917505, 131072, 1, 983041, 131072, 1, 1048577, 131072, 1, 1114113, 131072, 1, 1179649, 131072, 1, 1245185, 131072, 1, 1310721, 131072, 1, 1376257, 131072, 1, 1441793, 131072, 1, 1507329, 131072, 1, 1572865, 131072, 1, 1703937, 131072, 1, 1769473, 131072, 1, 1835009, 131072, 1, 1900545, 131072, 1, 1966081, 131072, 1, 2031617, 131072, 1, 1638401, 131072, 1, 2097153, 131072, 1, 2162689, 131072, 1, 2228225, 131072, 1, 2293761, 131072, 1, 2359297, 131072, 1, 2424833, 131072, 1, 2359319, 851968, 1, 2424855, 851968, 2, 2359320, 917504, 1, 2424856, 917504, 2, 2359321, 851968, 1, 2424857, 851968, 2, 2359322, 917504, 1, 2424858, 917504, 2, 2228249, 851968, 1, 2293785, 851968, 2, 2228250, 917504, 1, 2293786, 917504, 2, 2359323, 851968, 1, 2424859, 851968, 2, 2359324, 917504, 1, 2424860, 917504, 2, 2228251, 851968, 1, 2293787, 851968, 2, 2228252, 917504, 1, 2293788, 917504, 2, 2097179, 851968, 1, 2162715, 851968, 2, 2097180, 917504, 1, 2162716, 917504, 2, 2097181, 851968, 1, 2162717, 851968, 2, 2097182, 917504, 1, 2162718, 917504, 2, 2228253, 851968, 1, 2293789, 851968, 2, 2228254, 917504, 1, 2293790, 917504, 2, 2359325, 851968, 1, 2424861, 851968, 2, 2359326, 917504, 1, 2424862, 917504, 2, 2097183, 851968, 1, 2162719, 851968, 2, 2097184, 917504, 1, 2162720, 917504, 2, 2228255, 851968, 1, 2293791, 851968, 2, 2228256, 917504, 1, 2293792, 917504, 2, 2359327, 851968, 1, 2424863, 851968, 2, 2359328, 917504, 1, 2424864, 917504, 2, 2359329, 851968, 1, 2424865, 851968, 2, 2359330, 917504, 1, 2424866, 917504, 2)
 
 [node name="GiftBox" parent="." instance=ExtResource("3_ka32i")]
-position = Vector2(146, 503)
+position = Vector2(132, 182)
 
 [node name="Player" parent="." instance=ExtResource("2_3bgim")]
 position = Vector2(58, 476)
@@ -2713,6 +2772,7 @@ process_mode = 3
 script = ExtResource("7_p4i20")
 
 [node name="objectivesPanel" type="Panel" parent="HUD"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2763,6 +2823,7 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_t30fx")
 }
+autoplay = "objectivesLabelAnimated"
 
 [node name="descriptionLabel" type="Label" parent="HUD/objectivesPanel"]
 layout_mode = 0
@@ -2801,7 +2862,19 @@ offset_left = 15.0
 offset_top = 73.0
 offset_right = 607.0
 offset_bottom = 186.0
+theme_override_constants/separation = 0
 alignment = 1
+
+[node name="noModifier" type="Label" parent="HUD/objectivesPanel/modifiersPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NO MODIFIER ADDED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="startGame" type="Button" parent="HUD/objectivesPanel"]
 texture_filter = 1
@@ -2824,6 +2897,106 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_eitjr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f7luy")
 text = "START"
 
+[node name="deliverPanel" type="Panel" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="HUD/deliverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.0
+offset_top = -301.0
+offset_right = 388.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gyf7k")
+
+[node name="titleLabel" type="Label" parent="HUD/deliverPanel/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 135.0
+grow_horizontal = 2
+text = "GIFT DELIVERED SUCCESSFULLY"
+label_settings = SubResource("LabelSettings_5ui15")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="HUD/deliverPanel/Panel/titleLabel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 135.0
+grow_horizontal = 2
+text = "GIFT DELIVERED SUCCESSFULLY"
+label_settings = SubResource("LabelSettings_gah5q")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD/deliverPanel/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -119.0
+offset_right = 101.5
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_hutgt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="giftAbility" type="TextureProgressBar" parent="HUD/deliverPanel/Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("12_hutgt")
+
+[node name="mainMapBtn" type="Button" parent="HUD/deliverPanel/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -98.0
+offset_right = 104.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_28yd0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_28yd0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fkoyw")
+text = "Main Map"
+
+[connection signal="body_entered" from="exit/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="HUD/objectivesPanel/startGame" to="HUD" method="_on_start_game_pressed"]
 
 [editable path="GiftBox"]

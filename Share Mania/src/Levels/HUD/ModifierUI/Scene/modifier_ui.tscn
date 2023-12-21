@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfeu33yiyx0os"]
+
+[ext_resource type="Texture2D" uid="uid://cqdgj6khtl7lj" path="res://assets/modifierIcon/heavyWeight.png" id="1_qec6c"]
+
+[node name="modifierUI" type="Control"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_right = 25.0
+offset_bottom = 50.0
+grow_horizontal = 2
+texture = ExtResource("1_qec6c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 91.0
+grow_horizontal = 2
+text = "HEAVY ITEM"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -85,12 +85,14 @@ func dropCarriedObject():
 	 
 	carriedObject.followParent = false
 	carriedObject.position = $baseObjectPos/carriedObjectPos.global_position
+	carriedObject.freeze = false
 	carriedObject = false
 
 
 func pickObject():
 	carriedObject = items[0]
 	get_parent().remove_child(carriedObject)
+	carriedObject.freeze = true
 	$baseObjectPos/carriedObjectPos.add_child(carriedObject)
 	carriedObject.followParent = true
 	$baseObjectPos/AnimationPlayer.play("pickObject")
