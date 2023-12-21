@@ -35,4 +35,10 @@ func _on_body_entered(body):
 	for node in $modifiers.get_children():
 		var groups = node.get_groups()
 		if groups.has("fragile"):
-			node.updateHealthBar(linear_velocity)
+			node.updateHealthBar(linear_velocity,$dropTimer.wait_time - $dropTimer.time_left)
+	
+	$dropTimer.stop()
+
+
+func dropped():
+	$dropTimer.start()

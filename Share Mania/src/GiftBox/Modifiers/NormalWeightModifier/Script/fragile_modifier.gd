@@ -14,5 +14,6 @@ func _process(delta):
 	pass
 
 
-func updateHealthBar(force):
+func updateHealthBar(force,dropTime):
 	print(force)
+	print(dropTime)

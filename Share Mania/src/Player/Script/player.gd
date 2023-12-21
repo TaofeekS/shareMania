@@ -86,6 +86,7 @@ func dropCarriedObject():
 	carriedObject.followParent = false
 	carriedObject.position = $baseObjectPos/carriedObjectPos.global_position
 	carriedObject.freeze = false
+	carriedObject.dropped()
 	carriedObject = false
 
 
