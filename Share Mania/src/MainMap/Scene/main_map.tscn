@@ -3932,6 +3932,7 @@ position = Vector2(206, 170)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_kwc0y")
+levelpath = "res://src/Levels/Level2/Scene/level_2.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="houses/houseArea2"]
 material = SubResource("ShaderMaterial_aap7p")
@@ -3955,6 +3956,7 @@ position = Vector2(674, 172)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_kwc0y")
+levelpath = "res://src/Levels/Level3/Scene/level_3.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="houses/houseArea3"]
 material = SubResource("ShaderMaterial_aap7p")

@@ -1,8 +1,9 @@
 extends Node2D
 
-
+var giftBoxNode = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	giftBoxNode = $GiftBox
 	pass # Replace with function body.
 
 
@@ -14,4 +15,6 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	
 	if is_instance_valid($Player.carriedObject):
-		pass
+		if $Player.carriedObject.name == "GiftBox":
+			$HUD.show_deliver_panel()
+			

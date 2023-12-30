@@ -35,10 +35,26 @@ func _on_body_entered(body):
 	for node in $modifiers.get_children():
 		var groups = node.get_groups()
 		if groups.has("fragile"):
-			node.updateHealthBar(linear_velocity,$dropTimer.wait_time - $dropTimer.time_left)
+			var fragileHealth = node.updateHealthBar(linear_velocity,$dropTimer.wait_time - $dropTimer.time_left)
+			
+			var tween = get_tree().create_tween()
+			tween.tween_property(get_parent().get_node("HUD/importantUi/modifierContainer/fragileWeight"),"value",fragileHealth,0.3)
 	
 	$dropTimer.stop()
 
 
 func dropped():
 	$dropTimer.start()
+
+func getHealth():
+	var totalHealth = 0
+	
+	for node in $modifiers.get_children():
+		totalHealth += node.health
+	
+	var health = 100
+	
+	if totalHealth != 0:
+		health = totalHealth/ $modifiers.get_child_count()
+	 
+	return health

@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfeu33yiyx0os"]
+[gd_scene load_steps=3 format=3 uid="uid://dfeu33yiyx0os"]
 
+[ext_resource type="Script" path="res://src/Levels/HUD/ModifierUI/Script/modifier_ui.gd" id="1_nb0jq"]
 [ext_resource type="Texture2D" uid="uid://cqdgj6khtl7lj" path="res://assets/modifierIcon/heavyWeight.png" id="1_qec6c"]
 
 [node name="modifierUI" type="Control"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_nb0jq")
 
 [node name="icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 0)

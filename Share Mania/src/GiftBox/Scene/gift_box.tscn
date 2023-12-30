@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://hyylcyrhleh3"]
+[gd_scene load_steps=5 format=3 uid="uid://hyylcyrhleh3"]
 
 [ext_resource type="Script" path="res://src/GiftBox/Script/gift_box.gd" id="1_8agbj"]
 [ext_resource type="Texture2D" uid="uid://btr2wjdh1paj7" path="res://assets/giftBox.png" id="2_8dk2f"]
-[ext_resource type="PackedScene" uid="uid://dolm36i8rx8ho" path="res://src/GiftBox/Modifiers/NormalWeightModifier/Scene/normal_weight_modifier.tscn" id="3_d3qtq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ewi81"]
 rough = true
@@ -26,8 +25,6 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_pyflu")
 
 [node name="modifiers" type="Node2D" parent="."]
-
-[node name="normalWeightModifier" parent="modifiers" instance=ExtResource("3_d3qtq")]
 
 [node name="dropTimer" type="Timer" parent="."]
 wait_time = 20.0
